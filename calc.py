@@ -41,10 +41,9 @@ def convert_nuclear(q=None , w=None, m=None):
             up[ion] +=  w_*q_*A*np.sqrt(-2*np.log(xi_1))*np.cos(2*np.pi*xi_2)
     return Returnvalue(u,up)
 
-def oscillation_amplitude(m, w, T = 300):
+def oscillation_amplitude(m, w, ns = 0):
     # function of atomic m i and vibrational mode freq.
     # freq has eigenvector dxdydz which discusses displacement of i atom
     # this is where the switch between md and stochastic implementation deviates
     h_bar = 1.054571817E-34
-    kB = 1.38E-23
-    return 1/w * np.sqrt(kB*T/m)
+    return  np.sqrt(2*h_bar/m/w * (ns + 0.5)
